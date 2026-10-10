@@ -28,10 +28,10 @@ class RegistryFileTests(unittest.TestCase):
     def setUp(self):
         self.raw = json.loads(CAMERAS_CONFIG_PATH.read_text(encoding="utf-8"))["cameras"]
 
-    def test_phone_cameras_cam_001_and_002_driven_by_env_refs(self):
+    def test_phone_cameras_cam_001_to_003_driven_by_env_refs(self):
         phones = {c["camera_id"]: c for c in self.raw if c["camera_type"] == "phone"}
-        self.assertEqual(sorted(phones), ["CAM-001", "CAM-002"])
-        for number, (cam_id, name) in enumerate((("CAM-001", "CAM 001"), ("CAM-002", "CAM 002")), start=1):
+        self.assertEqual(sorted(phones), ["CAM-001", "CAM-002", "CAM-003"])
+        for number, (cam_id, name) in enumerate((("CAM-001", "CAM 001"), ("CAM-002", "CAM 002"), ("CAM-003", "CAM 003")), start=1):
             phone = phones[cam_id]
             self.assertEqual(phone["name"], name)
             self.assertEqual(phone["location_basis"], "real_installation")
@@ -54,8 +54,8 @@ class PickerTests(unittest.TestCase):
         from api.main import app
         with TestClient(app) as client:
             cams = client.get("/api/v1/cameras").json()["cameras"]
-        self.assertEqual([c["camera_id"] for c in cams], ["CAM-001", "CAM-002"])
-        self.assertEqual([c["name"] for c in cams], ["Demo phone camera - CAM 001", "Demo phone camera - CAM 002"])
+        self.assertEqual([c["camera_id"] for c in cams], ["CAM-001", "CAM-002", "CAM-003"])
+        self.assertEqual([c["name"] for c in cams], ["Demo phone camera - CAM 001", "Demo phone camera - CAM 002", "Demo phone camera - CAM 003"])
         self.assertNotIn("latitude", cams[0])
 
 

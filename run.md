@@ -27,7 +27,7 @@ python run_dashboard.py --mode build
 Check the phone is reachable (phone and laptop on the same Wi-Fi, IP Webcam app started):
 
 ```powershell
-Test-NetConnection 10.172.7.13 -Port 8080
+Test-NetConnection 10.133.16.27 -Port 8080
 ```
 
 `TcpTestSucceeded : True` means it is reachable. Then test the stream (no address is printed):
@@ -59,14 +59,14 @@ If the phone IP changed, look it up in the IP Webcam app (it shows the address),
 ### CAM 002 (second phone)
 
 ```powershell
-Test-NetConnection 10.172.4.180 -Port 8080
+Test-NetConnection 10.133.16.11 -Port 8080
 python scripts/check_camera.py CAM-002
 ```
 
 Settings in `.env` (same pattern as CAM 001; restart the API after changing them):
 
 ```
-PHONE_CAM002_URL=http://10.172.4.180:8080/video
+PHONE_CAM002_URL=http://10.133.16.11:8080/video
 PHONE_CAM002_LAT=<number>
 PHONE_CAM002_LNG=<number>
 ```

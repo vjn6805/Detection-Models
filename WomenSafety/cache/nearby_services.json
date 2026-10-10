@@ -1314,5 +1314,245 @@
         "reason": "type is not fire station (type: government office government office)"
       }
     ]
+  },
+  "cell:28.750,77.118": {
+    "cached_at": "2026-10-10T03:11:31.424117+00:00",
+    "services": {
+      "hospital": [
+        {
+          "title": "Sant Soham hospital",
+          "category": "hospital",
+          "type": "Hospital",
+          "types": [
+            "Hospital"
+          ],
+          "address": "Rithala Rd, Pocket 4, Sector 11E, Rohini, Delhi, 110085, India",
+          "phone": "+91 11 4171 8460",
+          "rating": 4.5,
+          "open_state": null,
+          "gps_coordinates": {
+            "latitude": 28.735605,
+            "longitude": 77.11297499999999
+          },
+          "place_id": "ChIJ9TQ6QVoBDTkREo1O7kpCxXs",
+          "distance_km": 1.68,
+          "type_looks_correct": true
+        },
+        {
+          "title": "Shivam Hospital",
+          "category": "hospital",
+          "type": "Hospital",
+          "types": [
+            "Hospital"
+          ],
+          "address": "63,64,65, Pocket 4, Sector 16A, Rohini (On main 15, diving road, Sector 16, Delhi, 110089, India",
+          "phone": "+91 11 4750 2211",
+          "rating": 4.3,
+          "open_state": "Open 24 hours",
+          "gps_coordinates": {
+            "latitude": 28.732782999999998,
+            "longitude": 77.1256987
+          },
+          "place_id": "ChIJO-aIl0EBDTkR6dAkUdL47UQ",
+          "distance_km": 2.08,
+          "type_looks_correct": true
+        },
+        {
+          "title": "DELHI GLOBAL HOSPITAL - Child hospital in Delhi, Child Hospital in Rohini, Paediatric Hospital in Delhi",
+          "category": "hospital",
+          "type": "Hospital",
+          "types": [
+            "Hospital"
+          ],
+          "address": "TEACHER'S COLONY, A 10, adjacent to SAMAYPUR, UNDERPASS, Samaypur, Delhi, 110042, India",
+          "phone": "+91 98104 83346",
+          "rating": 3.8,
+          "open_state": "Open 24 hours",
+          "gps_coordinates": {
+            "latitude": 28.7437674,
+            "longitude": 77.1415219
+          },
+          "place_id": "ChIJ____ewYBDTkR0eMRU0kFWik",
+          "distance_km": 2.43,
+          "type_looks_correct": true
+        }
+      ],
+      "police": [
+        {
+          "title": "Police Department",
+          "category": "police",
+          "type": "Police department",
+          "types": [
+            "Police department"
+          ],
+          "address": "P4VC+CJ7, Pocket 3, Sector 17, Rohini, Delhi, 110089, India",
+          "phone": "+91 11 2729 6956",
+          "rating": null,
+          "open_state": "Open 24 hours",
+          "gps_coordinates": {
+            "latitude": 28.7435288,
+            "longitude": 77.12155159999999
+          },
+          "place_id": "ChIJ88MygyQBDTkRZEG86DLpEuc",
+          "distance_km": 0.82,
+          "type_looks_correct": true
+        },
+        {
+          "title": "Delhi Police Crime Branch",
+          "category": "police",
+          "type": "Police department",
+          "types": [
+            "Police department"
+          ],
+          "address": "Sector 18, Rohini, New Delhi, Delhi 110089, India",
+          "phone": "+91 11 2336 1880",
+          "rating": null,
+          "open_state": "Closed \u00b7 Opens 7:30\u202fAM Tue",
+          "gps_coordinates": {
+            "latitude": 28.740717099999998,
+            "longitude": 77.1328632
+          },
+          "place_id": "ChIJa9b8ohABDTkR_Ap8fQ9DrUE",
+          "distance_km": 1.81,
+          "type_looks_correct": true
+        },
+        {
+          "title": "Police Station K N Katju Marg",
+          "category": "police",
+          "type": "Police department",
+          "types": [
+            "Police department"
+          ],
+          "address": "P4JC+FMC, Dr. KN Katju Marg, Block G-3, Sector 16, Rohini, Delhi, 110089, India",
+          "phone": "+91 11 2757 1171",
+          "rating": null,
+          "open_state": "Open 24 hours",
+          "gps_coordinates": {
+            "latitude": 28.7311767,
+            "longitude": 77.1216359
+          },
+          "place_id": "ChIJKzMOJT8BDTkR01EsUWSiGaQ",
+          "distance_km": 2.14,
+          "type_looks_correct": true
+        }
+      ],
+      "fire": [
+        {
+          "title": "Delhi Fire Service",
+          "category": "fire",
+          "type": "Fire station",
+          "types": [
+            "Fire station"
+          ],
+          "address": "P4PH+9F3, Pocket 1, Sector 15F, Rohini, Delhi, 110089, India",
+          "phone": null,
+          "rating": 4,
+          "open_state": null,
+          "gps_coordinates": {
+            "latitude": 28.735894199999997,
+            "longitude": 77.128683
+          },
+          "place_id": "ChIJ3foQhhYBDTkR8Ap-D7gOFdE",
+          "distance_km": 1.91,
+          "type_looks_correct": true
+        },
+        {
+          "title": "Fire Station Sector 16 Rohini",
+          "category": "fire",
+          "type": "Fire station",
+          "types": [
+            "Fire station"
+          ],
+          "address": "P4JC+98V, Dr. KN Katju Marg, Block G-3, Sector 16, Rohini, Delhi, 110089, India",
+          "phone": null,
+          "rating": 4.4,
+          "open_state": "Open 24 hours",
+          "gps_coordinates": {
+            "latitude": 28.730985399999998,
+            "longitude": 77.1207896
+          },
+          "place_id": "ChIJMRaYJD8BDTkRjnvsC8p2cjc",
+          "distance_km": 2.15,
+          "type_looks_correct": true
+        },
+        {
+          "title": "Fire Brigade Ride",
+          "category": "fire",
+          "type": "Fire station",
+          "types": [
+            "Fire station"
+          ],
+          "address": "Adventure Island, Swarn Jayanti Park, Sector 12, Rohini, Delhi, 110085, India",
+          "phone": null,
+          "rating": 2,
+          "open_state": null,
+          "gps_coordinates": {
+            "latitude": 28.7259423,
+            "longitude": 77.11457399999999
+          },
+          "place_id": "ChIJFRpl0EcBDTkRdRmopXQFzCw",
+          "distance_km": 2.7,
+          "type_looks_correct": true
+        }
+      ]
+    },
+    "errors": null,
+    "excluded": [
+      {
+        "category": "hospital",
+        "title": "GTK HOSPital",
+        "reason": "type is not hospital/clinic (type: doctor doctor)"
+      },
+      {
+        "category": "police",
+        "title": "Police Station",
+        "reason": "generic name ('Police Station') - not identifiable"
+      },
+      {
+        "category": "police",
+        "title": "Police Station",
+        "reason": "generic name ('Police Station') - not identifiable"
+      },
+      {
+        "category": "police",
+        "title": "Delhi police Central malkhana",
+        "reason": "type is not police station (type: government office government office)"
+      },
+      {
+        "category": "police",
+        "title": "Cyber Police Station Rohini",
+        "reason": "type is not police station (type: government office government office)"
+      },
+      {
+        "category": "fire",
+        "title": "Fire Station",
+        "reason": "generic name ('Fire Station') - not identifiable"
+      },
+      {
+        "category": "fire",
+        "title": "Fire Station",
+        "reason": "generic name ('Fire Station') - not identifiable"
+      },
+      {
+        "category": "fire",
+        "title": "Sea Max Fire Engineering Work",
+        "reason": "equipment/supplier, not a fire station (type: fire protection service fire protection service fire alarm s)"
+      },
+      {
+        "category": "fire",
+        "title": "FIRE EXTINGUISHER 4 kg @ rs. 1000/-",
+        "reason": "equipment/supplier, not a fire station (type: fire protection equipment supplier fire protection equipment)"
+      },
+      {
+        "category": "fire",
+        "title": "Bawana fire",
+        "reason": "equipment/supplier, not a fire station (type: fire protection equipment supplier fire protection equipment)"
+      },
+      {
+        "category": "fire",
+        "title": "Fire Station",
+        "reason": "generic name ('Fire Station') - not identifiable"
+      }
+    ]
   }
 }

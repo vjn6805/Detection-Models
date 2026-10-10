@@ -267,7 +267,7 @@ class Settings(BaseSettings):
     VIOLENCE_MIN_SPAN_S: float = 1.5           # minimum window coverage before the gate can open
     # CLIP cosine of the TOP-1 label (any of the repo's labels) being a violence/fight label. 0.22 (was 0.28, which was model.py's legacy
     # "Unknown" cutoff): cosines on real fight frames sit at 0.22-0.25 while the pose gates and N-of-M smoothing guard against false hits.
-    VIOLENCE_CLIP_THRESHOLD: float = 0.22
+    VIOLENCE_CLIP_THRESHOLD: float = 0.20
     VIOLENCE_MERGED_MIN_H: float = 0.30        # a lone person box at least this tall (fraction of frame height) counts as merged fighters
     VIOLENCE_MAX_GAP_S: float = 1.0            # limb energy is bridged across pose drop-outs up to this long
     VIOLENCE_SMOOTH_N: int = 3

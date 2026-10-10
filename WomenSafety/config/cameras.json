@@ -3,7 +3,7 @@
     {
       "camera_id": "CAM-001",
       "name": "CAM 001",
-      "place_text": "Demo phone installation",
+      "place_text": "Delhi Technological University, Delhi",
       "latitude": "env:PHONE_CAM001_LAT",
       "longitude": "env:PHONE_CAM001_LNG",
       "stream_source": "env:PHONE_CAM001_URL",
@@ -16,7 +16,7 @@
     {
       "camera_id": "CAM-002",
       "name": "CAM 002",
-      "place_text": "Demo phone installation",
+      "place_text": "Delhi Technological University, Delhi",
       "latitude": "env:PHONE_CAM002_LAT",
       "longitude": "env:PHONE_CAM002_LNG",
       "stream_source": "env:PHONE_CAM002_URL",
@@ -25,6 +25,19 @@
       "enabled": true,
       "sample": false,
       "field_of_view_note": "Demo phone camera. Stream URL and coordinates come from PHONE_CAM002_URL / PHONE_CAM002_LAT / PHONE_CAM002_LNG in .env (optional PHONE_CAM002_USER / PHONE_CAM002_PASSWORD for an app login); nothing sensitive is stored in this file."
+    },
+    {
+      "camera_id": "CAM-003",
+      "name": "CAM 003",
+      "place_text": "Delhi Technological University, Delhi",
+      "latitude": "env:PHONE_CAM003_LAT",
+      "longitude": "env:PHONE_CAM003_LNG",
+      "stream_source": "env:PHONE_CAM003_URL",
+      "camera_type": "phone",
+      "location_basis": "real_installation",
+      "enabled": true,
+      "sample": false,
+      "field_of_view_note": "Demo phone camera. Stream URL and coordinates come from PHONE_CAM003_URL / PHONE_CAM003_LAT / PHONE_CAM003_LNG in .env (optional PHONE_CAM003_USER / PHONE_CAM003_PASSWORD for an app login); nothing sensitive is stored in this file."
     },
     {
       "camera_id": "CAM-SAMPLE-001",

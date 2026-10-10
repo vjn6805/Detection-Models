@@ -152,7 +152,28 @@ class CameraWorker:
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
                 cv2.putText(frame, f"{box['label']} {box['confidence']:.2f}", (x1, max(16, y1 - 5)), cv2.FONT_HERSHEY_SIMPLEX, .55, (0, 0, 255), 2)
             except Exception: pass
+        action = self.action
+        if annotated and action is not None and time.time() - action.last_persons_t < 3.0:
+            self._draw_persons(frame, action)
         return frame
+
+    # COCO-17 skeleton, drawn so the operator can see the people the action detectors are tracking
+    _SKELETON = ((5, 6), (5, 7), (7, 9), (6, 8), (8, 10), (5, 11), (6, 12), (11, 12), (11, 13), (13, 15), (12, 14), (14, 16))
+
+    def _draw_persons(self, frame, action):
+        violent = bool((action.last_signals.get("violence") or {}).get("detected"))
+        color = (0, 0, 255) if violent else (0, 220, 0)
+        for person in list(action.last_persons):
+            try:
+                x1, y1, x2, y2 = map(int, person["box"])
+                cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
+                cv2.putText(frame, f"{'VIOLENCE ' if violent else ''}person {person['id']}", (x1, max(16, y1 - 5)),
+                            cv2.FONT_HERSHEY_SIMPLEX, .55, color, 2)
+                kp = person["kp"]
+                for a, b in self._SKELETON:
+                    if kp[a][2] >= 0.3 and kp[b][2] >= 0.3:
+                        cv2.line(frame, (int(kp[a][0]), int(kp[a][1])), (int(kp[b][0]), int(kp[b][1])), color, 2)
+            except Exception: pass
 
     def detail(self):
         age = None if self.last_frame_at is None else round(time.time() - self.last_frame_at, 2)
@@ -163,7 +184,8 @@ class CameraWorker:
                 "latency_s": None if self.latency_s is None else round(self.latency_s, 3), "error": self.error,
                 "detectors": self.detectors,
                 "action_detectors": None if self.action is None else {"experimental": True, "throttle": self.action.throttle,
-                                                                       "pose_passes": self.action.pose_passes, "settings": self.action.describe()},
+                                                                       "pose_passes": self.action.pose_passes, "settings": self.action.describe(),
+                                                                       "persons": len(self.action.last_persons), "live": self.action.last_signals},
                 **location_fields(self.camera, resolve_location(self.camera))}
 
     def _incident_ready(self, camera_id, ev, evidence):

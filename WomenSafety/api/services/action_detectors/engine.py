@@ -61,6 +61,10 @@ class ActionEngine:
         self._last_pose_t: Optional[float] = None
         self._last_eval: dict = {}
         self.throttle = 1
+        # latest tracked people (original-frame coords) and each detector's latest verdict, for the live overlay / status
+        self.last_persons: list = []
+        self.last_persons_t: float = 0.0
+        self.last_signals: dict = {}
         self._last_throttle_check: Optional[float] = None
         # measured cost counters (reported by the perf script / status)
         self.pose_passes = 0
@@ -104,6 +108,10 @@ class ActionEngine:
         self.pose_passes += 1
         dets = [(b, k) for b, k in dets if max(b[3] - b[1], b[2] - b[0]) >= settings.ACTION_MIN_PERSON_H_FRAC * sh]
         persons = self.tracker.update(dets, t)
+        k = 1.0 / scale
+        self.last_persons = [{"id": p.track_id, "box": [float(v) * k for v in p.box],
+                              "kp": [[float(x) * k, float(y) * k, float(c)] for x, y, c in p.kp]} for p in persons]
+        self.last_persons_t = t
 
         if self._window:
             self._window[-1].frame = None          # only the newest PoseFrame keeps its image
@@ -125,6 +133,7 @@ class ActionEngine:
                 res = d.detect(win)
                 self.detector_runs[d.name] += 1
             res = self._scale_result(res, 1.0 / scale)
+            self.last_signals[d.name] = {"t": t, "detected": res.detected, "score": res.score, "evaluated": res.evaluated, **(res.signals or {})}
             out.append((d, res))
             if self.on_verdict is not None:
                 self.on_verdict(d, res, frame, ts, video_offset_s)

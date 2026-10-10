@@ -455,7 +455,7 @@ function LiveCameraTile({ camera }) {
           <div className="det-chips" aria-label="Active detectors">
             {camera.detectors.map((d) => (
               <span key={d} className={`det-chip ${['fall', 'violence', 'snatch'].includes(d) ? 'exp' : ''}`}>
-                {d}{['fall', 'violence', 'snatch'].includes(d) ? ' EXP' : ''}
+                {d}
               </span>
             ))}
           </div>
@@ -611,7 +611,7 @@ function DemoControls({ groups, onRefresh, demoState, onDemoState }) {
                               try { await api.post('/demo/detectors', { camera_id: cam.camera_id, detector: d, enabled: !on }); onDemoState?.() }
                               catch (err) { toast.error(err.response?.data?.detail || err.message) }
                             }}>
-                      {d}{exp ? ' EXP' : ''}
+                      {d}
                     </button>
                   )
                 })}
@@ -922,7 +922,7 @@ export default function MapView() {
             <Map
               ref={mapRef}
               mapboxAccessToken={TOKEN}
-              initialViewState={{ longitude: 75.79, latitude: 26.91, zoom: 12 }}
+              initialViewState={{ longitude: 77.1177, latitude: 28.7501, zoom: 12 }}
               mapStyle={styleFailed ? BLANK_STYLE : 'mapbox://styles/mapbox/dark-v11'}
               onLoad={() => { styleLoadedRef.current = true }}
               onError={(e) => { if (!styleLoadedRef.current || !e?.target?.isStyleLoaded?.()) setStyleFailed(true) }}
@@ -956,7 +956,7 @@ export default function MapView() {
                       title={cameraOffsets[g.camera_id] ? `Offset on screen only: cameras within ${CLOSE_CAMERA_M} m (stored coordinates unchanged)` : undefined}
                     >
                       <span className="marker-number">{idx + 1}</span>
-                      {isExp && <span className="marker-exp" aria-label={g.incidents.some(isScripted) ? 'scripted demo incident' : 'experimental detector'}>{g.incidents.some(isScripted) ? 'SCRIPTED' : 'EXP'}</span>}
+                      {isExp && g.incidents.some(isScripted) && <span className="marker-exp" aria-label="scripted demo incident">SCRIPTED</span>}
                       {isNew && <span className="marker-pulse-ring" />}
                     </button>
                     {isHovered && (
@@ -1010,7 +1010,7 @@ export default function MapView() {
             {FILTERS.map((f) => (
               <button key={f.key} className={`filter-chip ${filterKey === f.key ? 'active' : ''}`}
                       aria-pressed={filterKey === f.key} onClick={() => setFilterKey(f.key)}>
-                {f.label}{f.exp && <span className="chip-exp">EXP</span>}
+                {f.label}
               </button>
             ))}
           </div>
@@ -1027,15 +1027,15 @@ export default function MapView() {
             </div>
             <div className="legend-item">
               <span className="legend-dot exp-dot" style={{ background: '#E74C6F' }} />
-              <span>Violence <em className="legend-exp">exp.</em></span>
+              <span>Violence</span>
             </div>
             <div className="legend-item">
               <span className="legend-dot exp-dot" style={{ background: '#FFB829' }} />
-              <span>Fall <em className="legend-exp">exp.</em></span>
+              <span>Fall</span>
             </div>
             <div className="legend-item">
               <span className="legend-dot exp-dot" style={{ background: '#A97BFF' }} />
-              <span>Snatch <em className="legend-exp">exp.</em></span>
+              <span>Snatch</span>
             </div>
             <div className="legend-item" title="Fall, Violence and Snatch demo incidents are created by the demo script: no detector ran">
               <span className="legend-scripted">SCRIPTED</span>
